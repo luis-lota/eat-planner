@@ -16,3 +16,5 @@ export const routes: Routes = [
         path: '**', redirectTo: 'dashboard', pathMatch: 'full' // Redirect to the dashboard for any other unmatched paths
     }
 ];
+
+
