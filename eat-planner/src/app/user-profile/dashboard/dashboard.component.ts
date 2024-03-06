@@ -38,7 +38,7 @@ export class DashboardComponent {
       this.auth.logout({
         clientId: environment.auth0.clientId,
         logoutParams: {
-          returnTo: 'https://luis-lota.github.io/eat-planner/'
+          returnTo: window.location.origin 
         }
       });
     } else {
