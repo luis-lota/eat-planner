@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +15,13 @@ export class DashboardComponent {
 
   user:any = '';
   constructor(public auth: AuthService) {
+    console.log('ambiente:',environment)
     this.auth.user$.subscribe((user) => {
       if(user) {
         this.user = user;
       }
     });
+    
   }
 
 
@@ -31,7 +34,7 @@ export class DashboardComponent {
     this.auth.logout({
       logoutParams : {
         federated : true,
-        returnTo: 'https://luis-lota.github.io/eat-planner/'
+        returnTo: window.location.origin + '/eat-planner/'
       }
     })
   }

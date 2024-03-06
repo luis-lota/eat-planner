@@ -7,6 +7,8 @@ import { ROOT_REDUCER, metaReducers } from './store/reducers'
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
@@ -25,14 +27,7 @@ export const appConfig: ApplicationConfig = {
   }),
   importProvidersFrom(
     AuthModule.forRoot({
-      domain: 'dev-ivf3mcbcwdgnwslt.us.auth0.com',
-      clientId: 'qac63ExsInZpZzCMaP6EEb766Upaqs3o',
-      authorizationParams: {
-        redirect_uri: window.location.origin + '/eat-planner/' ,
-      },
-      httpInterceptor: {
-        allowedList: ['']
-      }
+      ...environment.auth0,
     })
   ),
   ]
