@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 
 import { routes } from './app.routes';
 import { StoreModule, provideStore } from '@ngrx/store';
@@ -11,7 +11,7 @@ import { environment } from '../environments/environment';
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
+  providers: [provideRouter(routes,withHashLocation() ),
   provideStore(ROOT_REDUCER, { metaReducers }),
   {
     provide: HTTP_INTERCEPTORS,
