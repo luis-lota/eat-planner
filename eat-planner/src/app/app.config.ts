@@ -11,7 +11,7 @@ import { environment } from '../environments/environment';
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes ),
+  providers: [provideRouter(routes,withHashLocation() ),
   provideStore(ROOT_REDUCER, { metaReducers }),
   {
     provide: HTTP_INTERCEPTORS,
