@@ -15,6 +15,7 @@ export class DashboardComponent {
 
   user:any = '';
   constructor(public auth: AuthService) {
+    console.log('logging out',window.location.origin + '/eat-planner/');
     console.log('ambiente:',environment)
     this.auth.user$.subscribe((user) => {
       if(user) {
@@ -31,11 +32,6 @@ export class DashboardComponent {
 
   logoutRedirect() {
     console.log('logging out',window.location.origin + '/eat-planner/');
-    this.auth.logout({
-      logoutParams : {
-        federated : true,
-        returnTo: window.location.origin + '/eat-planner/'
-      }
-    })
+    this.auth.logout();
   }
 }
