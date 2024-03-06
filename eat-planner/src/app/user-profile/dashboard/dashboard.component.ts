@@ -31,7 +31,7 @@ export class DashboardComponent {
     this.auth.logout({
       logoutParams : {
         federated : true,
-        returnTo: window.location.origin + '/eat-planner/'
+        returnTo: 'https://luis-lota.github.io/eat-planner/'
       }
     })
   }
