@@ -18,6 +18,7 @@ export class DashboardComponent {
     console.log('logging out', window.location.origin + '/eat-planner/');
     console.log('ambiente:', environment)
     this.auth.user$.subscribe((user) => {
+      console.log('user::',user)
       if (user) {
         this.user = user;
       }
