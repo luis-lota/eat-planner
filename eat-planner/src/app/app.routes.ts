@@ -12,20 +12,11 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         title: 'Eat planner-dashboard',
-        component: DashboardComponent
+        loadChildren: () => import('./user-profile/user-profile.routes').then(m => m.UserProfileRoutes)
     },
-
-    {
-        path: 'dashboard',
-        title: 'Eat planner-dashboard',
-       loadChildren : () => import('./user-profile/user-profile.routes').then(m => m.UserProfileRoutes)
-    },
-
     {
         path: '', redirectTo: 'dashboard', pathMatch: 'full'
     },
-
-
     {
         path: '**', redirectTo: 'dashboard', pathMatch: 'full'
     }
