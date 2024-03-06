@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { AppState } from './store/reducers';
+import { RootSelectors } from './store/selectors/';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,12 @@ import { Observable, Subscription } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  private store = inject(Store);
-  count$?: Observable<number>;
+  
+  count$?: Observable<any>;
   countSub?: Subscription
 
-  constructor() {
-    this.count$ = this.store.select('counter');
-    this.countSub = this.count$.subscribe((count) => console.log('count:', count));
+  constructor(private store : Store<AppState>) {
+    this.count$ = this.store.select(RootSelectors.selectFeature);
+    let sub = this.count$.subscribe((state) => console.log('state:', state));
   }
 }

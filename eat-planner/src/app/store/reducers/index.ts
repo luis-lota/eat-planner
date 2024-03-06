@@ -1,15 +1,19 @@
 import { isDevMode } from "@angular/core";
+import * as fromRootReducer from './root-reduce';
 
 import {
     ActionReducerMap,
     MetaReducer
 } from '@ngrx/store';
-import { counterReducer } from "./counter-reduce";
 
-export interface State { }
+import { rootReducer} from "./root-reduce";
 
-export const reducers: ActionReducerMap<State> = {
-    counter : counterReducer
+export interface AppState {
+    [fromRootReducer.featureKey]: fromRootReducer.State;
+ }
+
+export const ROOT_REDUCER: ActionReducerMap<AppState> = {
+    root : rootReducer
 };
 
-export const metaReducers: MetaReducer<State>[] = !isDevMode() ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !isDevMode() ? [] : [];

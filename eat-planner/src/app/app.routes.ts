@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from '../auth/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './auth/login/login.component';
+import { DashboardComponent } from './user-profile/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         title: 'Eat planner-login',
-        component: LoginComponent
+       loadChildren : () => import('./auth/auth.routes').then(m => m.authRoutes)
     },
 
     {
@@ -16,11 +16,17 @@ export const routes: Routes = [
     },
 
     {
-        path: '', redirectTo: 'login', pathMatch: 'full'
+        path: 'dashboard',
+        title: 'Eat planner-dashboard',
+       loadChildren : () => import('./user-profile/user-profile.routes').then(m => m.UserProfileRoutes)
+    },
+
+    {
+        path: '', redirectTo: 'dashboard', pathMatch: 'full'
     },
 
 
     {
-        path: '**', redirectTo: 'login', pathMatch: 'full'
+        path: '**', redirectTo: 'dashboard', pathMatch: 'full'
     }
 ];
