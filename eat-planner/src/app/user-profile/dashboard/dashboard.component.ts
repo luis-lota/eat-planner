@@ -27,6 +27,7 @@ export class DashboardComponent {
   }
 
   logoutRedirect() {
+    console.log('logging out',window.location.origin + '/eat-planner/');
     this.auth.logout({
       logoutParams : {
         federated : true,
