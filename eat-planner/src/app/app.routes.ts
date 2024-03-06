@@ -5,19 +5,16 @@ import { DashboardComponent } from './user-profile/dashboard/dashboard.component
 export const routes: Routes = [
     {
         path: 'login',
-        title: 'Eat planner-login',
-       loadChildren : () => import('./auth/auth.routes').then(m => m.authRoutes)
+        loadChildren : () => import('./auth/auth.routes').then(m => m.authRoutes)
     },
-
     {
         path: 'dashboard',
-        title: 'Eat planner-dashboard',
         loadChildren: () => import('./user-profile/user-profile.routes').then(m => m.UserProfileRoutes)
     },
     {
-        path: '', redirectTo: 'dashboard', pathMatch: 'full'
+        path: '', redirectTo: '', pathMatch: 'full' // Redirect to the root URL
     },
     {
-        path: '**', redirectTo: 'dashboard', pathMatch: 'full'
+        path: '**', redirectTo: '', pathMatch: 'full' // Redirect to the root URL for any other unmatched paths
     }
 ];
