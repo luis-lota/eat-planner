@@ -7,22 +7,22 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
 
-  user:any = '';
+  user: any = '';
   constructor(public auth: AuthService) {
-    console.log('logging out',window.location.origin + '/eat-planner/');
-    console.log('ambiente:',environment)
+    console.log('logging out', window.location.origin + '/eat-planner/');
+    console.log('ambiente:', environment)
     this.auth.user$.subscribe((user) => {
-      if(user) {
+      if (user) {
         this.user = user;
       }
     });
-    
+
   }
 
 
@@ -31,7 +31,18 @@ export class DashboardComponent {
   }
 
   logoutRedirect() {
-    console.log('logging out',window.location.origin + '/eat-planner/');
+    console.log('logging out', window.location.origin + '/eat-planner/');
     this.auth.logout();
+
+    if (environment.production) {
+      this.auth.logout({
+        clientId: environment.auth0.clientId,
+        logoutParams: {
+          returnTo: 'https://luis-lota.github.io/eat-planner/'
+        }
+      });
+    } else {
+      this.auth.logout();
+    }
   }
 }
