@@ -28,7 +28,7 @@ export const appConfig: ApplicationConfig = {
       domain: 'dev-ivf3mcbcwdgnwslt.us.auth0.com',
       clientId: 'qac63ExsInZpZzCMaP6EEb766Upaqs3o',
       authorizationParams: {
-        redirect_uri: window.location.origin ,
+        redirect_uri: window.location.origin + '/' ,
       },
       httpInterceptor: {
         allowedList: ['']
