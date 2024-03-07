@@ -35,15 +35,15 @@ export class DashboardComponent {
     console.log('logging out', window.location.origin + '/eat-planner/');
     this.auth.logout();
 
-    if (environment.production) {
-      this.auth.logout({
-        clientId: environment.auth0.clientId,
-        logoutParams: {
-          returnTo: window.location.origin 
-        }
-      });
-    } else {
-      this.auth.logout();
-    }
+    // if (environment.production) {
+    //   this.auth.logout({
+    //     clientId: environment.auth0.clientId,
+    //     logoutParams: {
+    //       returnTo: window.location.origin 
+    //     }
+    //   });
+    // } else {
+    //   this.auth.logout();
+    // }
   }
 }
