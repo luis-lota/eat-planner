@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -10,4 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginComponent {
 
+  constructor(private auth: AuthService) { }
+
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect();
+  }
 }

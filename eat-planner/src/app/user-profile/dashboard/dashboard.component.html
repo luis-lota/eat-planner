@@ -25,3 +25,18 @@
         </div>
     </div>
 </nav>
+
+
+
+<div class="container">
+    @defer{
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, {{user?.name}}!</h1>
+           
+        </div>
+    }
+
+    @placeholder(minimum 5000ms)  {
+       <app-loading></app-loading>
+    }
+</div>
