@@ -18,8 +18,7 @@
               
             </ul>
             <form class="d-flex">
-                <button class="btn btn-outline-success" *ngIf="(auth.isAuthenticated$ | async) === false" (click)="loginWidthRedirect()">login</button>
-                <button class="btn btn-outline-danger" *ngIf="(auth.isAuthenticated$ | async)" (click)="logoutRedirect()">logout</button>
+                <button class="btn btn-outline-danger" (click)="logoutRedirect()">logout</button>
 
             </form>
         </div>
