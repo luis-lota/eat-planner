@@ -14,7 +14,7 @@ import { FeatureAuthActions } from '../store/actions';
 export class LoginComponent {
   constructor(private store: Store<AppState>) {}
 
-  loginWithRedirect(): void {
+  login(): void {
     this.store.dispatch(FeatureAuthActions.postLoginAPI$());
   }
 }
