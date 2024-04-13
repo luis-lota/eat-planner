@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<main id="main" class="main">
+    <!-- breadcum-->
+    <app-breadcum></app-breadcum>
+    <!-- breadcum-->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+
+            <!-- Sales Card -->
+            <div class="col-md-3" *ngFor="let item of [
+                {
+                    name : 'Domingo'
+                },
+                {
+                    name : 'Segunda-feira'
+                },
+                {
+                    name : 'Terca-feira'
+                },
+                {
+                    name : 'Quarta-feira'
+                },
+                {
+                    name : 'Quinta-feira'
+                },
+                {
+                    name : 'Sexta-feira'
+                },
+                {
+                    name : 'Sabado'
+                }
+            ]">
+                <app-card-eater [name]="item?.name"></app-card-eater>
+            </div>
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer></app-footer>

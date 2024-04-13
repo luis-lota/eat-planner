@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppState, AuthService } from '@auth0/auth0-angular';
-import { LoadingComponent } from '../../shared/loading/loading.component';
+import { LoadingComponent } from '../shared/loading/loading.component';
 import { Store } from '@ngrx/store';
 import { FeatureAuthActions } from '../../auth/store/actions';
 

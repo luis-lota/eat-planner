@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { CustomAuthGuard } from './auth/guards/auth.guard';
+import { AppComponent } from './app.component';
+import { AppGuardedComponent } from './components/app-guarded/app-guarded.component';
 
 
 export const routes: Routes = [
@@ -9,10 +11,14 @@ export const routes: Routes = [
         canActivate: []
     },
     {
-        path: 'dashboard',
-        loadChildren: () => import('./user-profile/user-profile.routes').then(m => m.UserProfileRoutes),
-        canActivate: [CustomAuthGuard]
+        path : 'dashboard',
+        component: AppGuardedComponent
     },
+    // {
+    //     path: 'dashboard',
+    //     loadChildren: () => import('./libs/user-profile/user-profile.routes').then(m => m.UserProfileRoutes),
+    //     canActivate: [CustomAuthGuard]
+    // },
     {
         path: '', redirectTo: 'dashboard', pathMatch: 'full' // Redirect to the dashboard when accessing the root URL
     },
